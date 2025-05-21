@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J.A.D - Juega, Aprende, Diviértete</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #0d1b2a;
+      color: #ffffff;
+    }
+    header {
+      background-color: #1b263b;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img.logo {
+      height: 60px;
+    }
+    header h1 {
+      font-size: 1.8em;
+      color: #00d4ff;
+    }
+    .search-bar {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      background-color: #141c2f;
+      color: #00fff7;
+      font-size: 1em;
+      border: 2px solid #00fff7;
+    }
+    .search-bar button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      background-color: #00fff7;
+      color: #0d1b2a;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .main-banner {
+      background: url('robot-service.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .main-banner h2 {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      font-size: 2em;
+      border-radius: 10px;
+    }
+    .section {
+      padding: 40px;
+      text-align: center;
+    }
+    .section img {
+      max-width: 300px;
+      border-radius: 15px;
+      margin: 20px;
+    }
+    .cta {
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #1b263b;
+      border-radius: 10px;
+    }
+    .cta a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #00d4ff;
+      color: #0d1b2a;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #1b263b;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    .thank-you {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.2em;
+      color: #00fff7;
+    }
+    .section.mission {
+  background-color: #0f2a45;
+  color: #00e0ff;
+  font-size: 1.2em;
+  padding: 40px 20px;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-top: 2px solid #00d4ff;
+  border-bottom: 2px solid #00d4ff;
+}
+.chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00d4ff;
+  color: #0d1b2a;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 212, 255, 0.5);
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.chat-bubble:hover {
+  transform: scale(1.1);
+}
+/* Botón estilo futurista */
+.futuristic-button {
+  padding: 12px 25px;
+  background-color: transparent;
+  border: 2px solid #00fff7;
+  color: #00fff7;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7 inset;
+}
+.futuristic-button:hover {
+  background-color: #00fff7;
+  color: #0d1b2a;
+  box-shadow: 0 0 20px #00fff7, 0 0 40px #00fff7 inset;
+}
+
+/* Modal futurista */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 27, 42, 0.95);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.6s ease;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #00fff7;
+  animation: scaleIn 0.5s ease;
+}
+
+/* Cerrar modal */
+.close {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  color: #00fff7;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.close:hover {
+  color: #ffffff;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { background-color: rgba(0,0,0,0); }
+  to { background-color: rgba(13, 27, 42, 0.95); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Empresa.png" alt="Logo JAD" class="logo">
+    <h1>J.A.D - Juega, Aprende, Diviértete</h1>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar cursos, robots, tecnología...">
+    <button>Buscar</button>
+  </div>
+
+  <div class="main-banner">
+    <h2>Bienvenido al Futuro de la Educación y la Tecnología</h2>
+  </div>
+  
+
+</section>
+  <section class="section mission">
+  <p>
+    Es una empresa innovadora la cual busca el aprendizaje de una forma <strong>H.F.W.H</strong>,
+    con paquetes de inicio en el mundo de la programación y la robótica para el aprendizaje tecnológico y divertido.
+  </p>
+</section>
+<section class="section">
+  <h2>Conoce nuestras instalaciones</h2>
+  <button class="futuristic-button" onclick="document.getElementById('instalaciones-modal').style.display='flex'">
+    Ver Instalaciones
+  </button>
+
+  <div id="instalaciones-modal" class="modal">
+    <span class="close" onclick="document.getElementById('instalaciones-modal').style.display='none'">&times;</span>
+    <img class="modal-content" src="Ints.png" alt="Instalaciones de JAD">
+  </div>
+</section>
+
+  <section class="section">
+    <h2>Robots de Servicio al Cliente</h2>
+    <img src="robot-1.png" alt="Robot 1" width="150">
+    <img src="Robot-2.png" alt="Robot 2">
+    <p>Nuestros robots están listos para ayudarte 24/7 con cualquier duda, compra o actividad educativa.</p>
+  </section>
+
+  <section class="section cta">
+    <h2>¿Quieres visitarnos o formar parte de nosotros?</h2>
+    <a href="#visitanos">Visítanos</a>
+    <a href="#unete">Únete a J.A.D</a>
+  </section>
+
+  <section class="section">
+    <h2>Cursos Disponibles</h2>
+    <p>Explora nuestro catálogo de cursos en robótica, programación, inteligencia artificial y más.</p>
+    <a href="#cursos" class="cta-button">Ver Cursos</a>
+  </section>
+  <footer>
+    &copy; 2025 J.A.D - Todos los derechos reservados
+  </footer>
+  <!-- Burbuja de chat -->
+<a href="#chat" class="chat-bubble" title="¿Necesitas ayuda?">
+  💬
+</a>
+</body>
+</html>
